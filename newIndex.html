@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Başlığı</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body onload="showAll()">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img style="height: 200px;"   src="logo.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div style="font-size: xx;display: flex; flex-direction: row; align-items: center; justify-content: center; " class=" collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class=" navbar-nav me-auto mb-2 mb-lg-0" style="width: 100%;font-size: xx-large; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+          <li class="nav-item">
+            <a style="font-size: xx-large; text-decoration: underline;" onclick="showAll()" class="nav-link" href="#">Ana sayfa</a>
+          </li>
+          <li class="nav-item">
+            <a onclick="showTarihce()" style="font-size: xx-large; text-decoration: underline;" class="nav-link" href="#">Tarihçe</a>
+          </li>
+          <li class="nav-item">
+            <a onclick = 'showEvents()' style="font-size: xx-large; text-decoration: underline;" class="nav-link" href="#">Etkinlikler</a>
+          </li>
+          <li class="nav-item">
+            <a onclick = 'showKadro()' style="font-size: xx-large; text-decoration: underline;"  class="nav-link" href="#">Öğretim Kadrosu</a>
+          </li>
+          <li class="nav-item">
+            <a onclick = 'showIletisim()'  style="font-size: xx-large; text-decoration: underline;" class="nav-link" href="#">İletişim</a>
+          </li>
+          <li style="position: absolute; right: 0; display: flex; flex-direction: row; align-items: center; justify-content: center;" class="nav-item">
+            <a   class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+            <a   class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+            <a   class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div  class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div id="anasayfa" class="col-md-12">
+            <div style=" height: 400px; background-color: saddlebrown;" class="slideshow-container">
+
+                <div style="height: auto;" class="mySlides ">
+                  <div class="numbertext">1 / 3</div>
+                  <img src="image1.jpg" style="width:100%; height: 400px;">
+                </div>
+                
+                <div style="height: auto;" class="mySlides ">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="ffffffffffff.jpg" style="width:100%; height: 400px;">
+                  </div>
+                
+                  <div style="height: auto;" class="mySlides ">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="image3.jpg" style="width:100%; height: 400px;">
+                  </div>
+                
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+                
+                </div>
+                <br>
+                
+                <div style="text-align:center">
+                  <span class="dot" onclick="currentSlide(1)"></span> 
+                  <span class="dot" onclick="currentSlide(2)"></span> 
+                  <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div  style="border: 1px solid black; background-color: rgba(239,239,240,0.3); font-size: 20px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                <h1 style="text-align: center;">Defne Koleji</h1>
+                <p style="padding: 100px; word-break: break-all;">Defne Koleji: Geleceğin Liderlerini Yetiştiren Kurum
+
+                    Defne Koleji, 2000 yılında kurulan ve eğitime verdiği önemle kısa sürede adından söz ettiren bir kolejdir. Okulumuz, çağın gerektirdiği bilgi ve becerileri kazandırmayı hedefleyen, akademik başarının yanı sıra sosyal ve kültürel gelişimi de önemseyen bir eğitim anlayışına sahiptir.
+                    
+                    Okulumuzda, modern eğitim yöntemleriyle, alanında uzman ve deneyimli öğretmenler tarafından eğitim verilmektedir. Öğrencilerimiz, küçük yaşlardan itibaren aktif öğrenme ve proje tabanlı eğitim modelleriyle hayata hazırlanmaktadır. Okulumuzda ayrıca, öğrencilerin ilgi ve yeteneklerini keşfetmelerine ve geliştirmelerine yardımcı olacak çeşitli kulüp ve etkinlikler düzenlenmektedir.
+                    
+                    Defne Koleji, öğrencilerine uluslararası standartlarda bir eğitim sunmak için, yurtiçi ve yurtdışındaki eğitim kurumları ile işbirliği yapmaktadır. Okulumuz, Cambridge Üniversitesi'nin uluslararası sınavlarına hazırlık programları sunmaktadır. Ayrıca, okulumuzun öğrencileri, yurtdışındaki eğitim kurumları ile değişim programlarına katılma fırsatı bulmaktadır.
+                    
+                    Okulumuzda, öğrencilerin fiziksel ve ruhsal gelişimine de büyük önem verilmektedir. Okulumuzda, kapalı spor salonu, yüzme havuzu, tenis kortu, basketbol sahası ve futbol sahası gibi spor tesisleri bulunmaktadır. Ayrıca, okulumuzda, rehberlik ve psikolojik danışma hizmetleri de verilmektedir.
+                    
+                    Defne Koleji, öğrencilerinin başarılı ve mutlu bireyler olarak yetişmesine katkıda bulunmak için çalışan, alanında lider bir eğitim kurumudur. Okulumuz, öğrencilerinin gelecekte topluma faydalı bireyler olarak yetişmeleri için onlara gerekli bilgi, beceri ve değerleri kazandırmayı hedeflemektedir.
+                    
+                    Misyonumuz
+                    
+                    Öğrencilerimizin, dünyayı anlayabilen, eleştirel düşünebilen, yaratıcı ve girişimci bireyler olarak yetişmelerine yardımcı olmaktır.
+                    
+                    Vizyonumuz
+                    
+                    Uluslararası standartlarda eğitim veren, öğrencilerinin başarılı ve mutlu bireyler olarak yetişmesini sağlayan, alanında lider bir kolej olmaktır.
+                    
+                    Hedeflerimiz
+                    
+                        Öğrencilerimizin akademik başarılarını artırmak
+                        Öğrencilerimizin sosyal ve kültürel gelişimlerini desteklemek
+                        Öğrencilerimizin ilgi ve yeteneklerini keşfetmelerine ve geliştirmelerine yardımcı olmak
+                        Öğrencilerimizin uluslararası rekabete hazır olmalarını sağlamak
+                    
+                    Değerlerimiz
+                    
+                        Azim ve kararlılık
+                        Başarı odaklılık
+                        Yaratıcılık ve yenilikçilik
+                        Ekip çalışması
+                        Paylaşımcılık
+                        Hoşgörü ve saygı
+                    
+                    Defne Koleji, bu değerleri benimseyerek, öğrencilerinin gelecekte başarılı ve mutlu bireyler olarak yetişmeleri için onlara gerekli desteği sağlamaktadır.</p>
+            </div>
+        </div>
+      </div>
+    <div class="row">
+      <div id="tarihce" class="col-md-12">
+        <div style="text-align: center;">
+
+            <img style="width: 600px; padding: 10px;" src="okulresim.jpg">
+            
+            </div>
+            
+        <br>
+        <br>
+        <br>
+        <br>
+        <div  style="border: 1px solid black; background-color: rgba(239,239,240,0.3); font-size: 20px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+
+            <h1 style="text-align: center;">Tarihçemiz</h1>
+            <p style="padding: 100px; word-break: break-all;">Defne Koleji: Bir Başarı Öyküsü
+
+                Defne Koleji, 1978 yılında, eğitime gönül vermiş bir grup insan tarafından kuruldu. Okulumuz, kurulduğu günden itibaren, çağdaş eğitim anlayışıyla, öğrencilerini geleceğe hazırlamak için çalışmaktadır.
+                
+                Okulumuzun kurucuları, eğitimde kalitenin ve başarısının önemine inanıyorlardı. Bu nedenle, okulumuzda, alanında uzman ve deneyimli öğretmenler tarafından, modern eğitim yöntemleriyle eğitim verilmektedir.
+                
+                Okulumuzun ilk yıllarında, eğitim faaliyetlerimiz, küçük bir binada yürütülüyordu. Ancak, okulumuzun başarısından duyulan memnuniyet, kısa sürede okulumuzun büyümesini sağladı. 1980'li yıllarda, okulumuz için yeni bir bina inşa edildi. Yeni binamız, modern eğitim tesisleri ve geniş bir kampüsüyle, öğrencilerine daha iyi bir eğitim imkanı sunmaktaydı.
+                
+                1990'lı yıllarda, okulumuz, uluslararası standartlarda eğitim veren bir kurum olma hedefiyle, yurtdışındaki eğitim kurumları ile işbirliği yapmaya başladı. Bu işbirliği sayesinde, okulumuzun öğrencileri, uluslararası sınavlara hazırlık programlarına katılma fırsatı buldu. Ayrıca, okulumuzun öğrencileri, yurtdışındaki eğitim kurumları ile değişim programlarına katılmaya başladı.
+                
+                2000'li yıllarda, okulumuz, eğitim teknolojilerinde yaşanan gelişmelere paralel olarak, eğitim faaliyetlerimizi de dijitalleştirdik. Okulumuzda, öğrencilerine daha iyi bir eğitim imkanı sunmak için, bilgisayar laboratuvarları, akıllı tahta ve tablet bilgisayarlar gibi teknolojik altyapılar kuruldu.
+                
+                Bugün, Defne Koleji, Türkiye'nin önde gelen eğitim kurumlarından biridir. Okulumuzda, 400'den fazla öğrenciye, ilkokuldan liseye kadar, eğitim verilmektedir. Okulumuzun öğrencileri, akademik başarılarının yanı sıra, sosyal ve kültürel gelişimlerinde de başarılı olmaktadırlar.
+                
+                Defne Koleji, eğitimde kalite ve başarıyı yakalamak için, her zaman yeniliklere açık bir kurum olmuştur. Okulumuz, gelecekte de, öğrencilerinin başarılı ve mutlu bireyler olarak yetişmesine katkıda bulunmak için çalışmaya devam edecektir.
+                
+                Defne Koleji'nin Başarı Öyküsünün Temel Dayanakları
+                
+                Defne Koleji'nin başarı öyküsü, aşağıdaki temel dayanaklar üzerine inşa edilmiştir:
+                
+                    Kaliteli eğitim: Okulumuzda, alanında uzman ve deneyimli öğretmenler tarafından, modern eğitim yöntemleriyle eğitim verilmektedir.
+                    Uluslararası standartlar: Okulumuz, uluslararası standartlarda eğitim veren bir kurum olma hedefiyle, yurtdışındaki eğitim kurumları ile işbirliği yapmaktadır.
+                    Teknoloji: Okulumuzda, öğrencilerine daha iyi bir eğitim imkanı sunmak için, teknolojik altyapılar kurulmuştur.
+                
+                Defne Koleji'nin Geleceğe Bakış Açısı
+                
+                Defne Koleji, eğitimde kalite ve başarıyı yakalamak için, her zaman yeniliklere açık bir kurum olmuştur. Okulumuz, gelecekte de, öğrencilerinin başarılı ve mutlu bireyler olarak yetişmesine katkıda bulunmak için çalışmaya devam edecektir.
+                
+                Okulumuzun gelecekteki hedefleri arasında şunlar yer almaktadır:
+                
+                    Akademik başarılarını daha da artırmak: Okulumuzun öğrencileri, akademik başarılarıyla her zaman ön plana çıkmaktadır. Okulumuz, akademik başarılarını daha da artırmak için, yeni eğitim programları ve öğretim yöntemleri geliştirmeye devam edecektir.
+                    Sosyal ve kültürel gelişimleri desteklemek: Okulumuz, öğrencilerinin sosyal ve kültürel gelişimlerini desteklemek için, çeşitli kulüp ve etkinlikler düzenlemektedir. Okulumuz, bu etkinlikleri daha da zenginleştirmek için çalışacaktır.
+                    Uluslararası rekabete hazır bireyler yetiştirmek: Okulumuz, öğrencilerinin uluslararası rekabete hazır bireyler olarak yetişmeleri için, yurtdışındaki eğitim kurumları ile işbirliğini daha da güçlendirecektir.
+                
+                Defne Koleji, bu hedeflere ulaşmak için, eğitimdeki yenilikleri takip etmeye ve öğrencilerinin ihtiyaçlarına göre kendini geliştirmeye devam edecektir.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="hakkinda" class="col-md-12">
+        <h1>Hakkında</h1>
+        <p>Sitenin hakkında kısmını buraya yazabilirsiniz.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="events"  class="col-md-12">
+        <div  style="display: flex; justify-content: space-around; align-items: center; flex-direction: row; flex-wrap: wrap;">
+            <div style="width: 33%; margin: 5rem;">
+                <img style="width: 100% ; height: 300px;" src="etk1.jpg" alt="">
+            </div>
+            <div style="width: 33%; margin: 5rem;">
+                <img style="width: 100% ; height: 300px;" src="image2.jpg" alt="">
+            </div>
+            <div style="width: 33%; margin: 5rem;">
+                <img style="width: 100% ; height: 300px;" src="etk2.jpg" alt="">
+            </div>
+            <div style="width: 33%; margin: 5rem;">
+                <img style="width: 100% ; height: 300px;" src="etk3.jpg" alt="">
+            </div>
+            <div style="width: 33%; margin: 5rem;">
+                <img style="width: 100% ; height: 300px;" src="etk4.jpg" alt=""> 
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+      <div  id="kadro" class="row col-md-12" >
+        <div style='display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around; align-items: center;'>
+        <div class="card" style="width: 45%; margin-bottom: 5rem;">
+            <div class="card-body">
+              <h5 class="card-title">Prof. Dr. Ali Can</h5>
+              <p class="card-text">Matematik alanında doktora yapmış, uluslararası alanda tanınan bir bilim insanı. Defne Koleji'nin akademik hedeflerini belirlemekten ve uygulamaktan sorumlu.</p>
+            </div>
+          </div>
+          <div class="card " style="width: 45%; margin-bottom: 5rem;">
+            <div class="card-body ">
+              <h5 class="card-title">Ögr. Görevlisi Ayşegül Demir</h5>
+              <p class="card-text"> İlkokul öğretmenliği alanında yüksek lisans yapmış, deneyimli bir eğitimci. İlkokul öğrencilerinin akademik ve sosyal gelişimlerini desteklemekten sorumlu.</p>
+            </div>
+          </div>
+          <div class="card " style="width: 45%; margin-bottom: 5rem;">
+            <div class="card-body">
+              <h5 class="card-title">Mehmet Öztürk</h5>
+              <p class="card-text">Fen bilgisi alanında doktora yapmış, başarılı bir eğitimci. Ortaokul öğrencilerinin akademik başarılarını artırmaktan sorumlu.</p>
+            </div>
+          </div>
+          <div class="card " style="width: 45%; margin-bottom: 5rem;">
+            <div class="card-body">
+              <h5 class="card-title">Gülşah Yılmaz</h5>
+              <p class="card-text">Edebiyat alanında doktora yapmış, yaratıcı bir eğitimci. Lise öğrencilerinin akademik ve kişisel gelişimlerini desteklemekten sorumlu.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+        <div style=" background-color: rgba(239,239,240,0.3);" id="iletisim" class="col-md-12">
+          <h1>İletişim</h1>
+          <p>Uslu Cad. Yunus Sok. No:13 Ataşehir / İstanbul</p>
+          <p>bilgi@defnekoleji.k12.tr </p>
+          <p>0554 195 09 23</p>
+        </div>
+      </div>
+  </div>
+<script src="main.js"></script>
+</body>
+</html>
+
